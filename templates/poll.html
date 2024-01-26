@@ -1,0 +1,417 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Main page{% endblock %}
+{% block content %}
+    {{super()}}
+    <div class="container">
+      <form class="bg-white px-4"  action="{{ url_for('add_event') }}" method="POST">
+        
+        <!-- №1 вопрос о поле -->
+        <div class="form-group">
+            <label for="eventSex">Укажите ваш пол:</label>
+            <input type="text" name="eventSex" class="form-control" placeholder="Пол" list="sex" />
+                <datalist id="sex">
+                    <option>Не указан</option>
+                    <option>Женский</option>
+                    <option>Мужской</option>
+                </datalist>
+        </div>
+        
+        <!-- №2 вопрос о возрасте -->
+        <div class="form-group">
+            <label for="eventAge">Укажите ваш возраст:</label>
+            <input type="number" name="eventAge" class="form-control" placeholder="Возраст" min="1" max="120">
+        </div>
+
+        <!-- №3 вопрос об уровне образования -->
+        <div class="form-group">
+            <label for="eventEducation">Укажите ваш уровень образования (завершенный):</label>
+            <input type="text" name="eventEducation" class="form-control" placeholder="Уровень образования" list="education" />
+                <datalist id="education">
+                    <option>Дошкольное</option>
+                    <option>Начальное общее — 1—4 классы</option>
+                    <option>Основное общее — 5—9 классы</option>
+                    <option>Среднее общее — 10—11 классы</option>
+                    <option>Среднее профессиональное</option>
+                    <option>Высшее I степени — бакалавриат</option>
+                    <option>Высшее II степени — специалитет, магистратура</option>
+                    <option>Высшее III степени — подготовка кадров высшей квалификации</option>
+                </datalist>
+        </div>
+        
+        <!-- №4 вопрос о регионе рождения  -->
+        <div class="form-group">
+            <label for="eventRegion_born">Укажите регион России, в котором вы родились:</label>
+            <input type="text" name="eventRegion_born" class="form-control" placeholder="Регион" list="region" />
+                <datalist id="region">
+                  <option>Не в России</option>
+                  <option>г. Москва</option>
+                  <option>г. Санкт-Петербург</option>
+                  <option>г. Севастополь</option>
+                  <option>Алтайский край</option>
+                  <option>Амурская область</option>
+                  <option>Архангельская область</option>
+                  <option>Астраханская область</option>
+                  <option>Белгородская область</option>
+                  <option>Брянская область</option>
+                  <option>Владимирская область</option>
+                  <option>Волгоградская область</option>
+                  <option>Вологодская область</option>
+                  <option>Воронежская область</option>
+                  <option>Еврейская автономная область</option>
+                  <option>Забайкальский край</option>
+                  <option>Ивановская область</option>
+                  <option>Иркутская область</option>
+                  <option>Кабардино-Балкарская Республика</option>
+                  <option>Калининградская область</option>
+                  <option>Калужская область</option>
+                  <option>Камчатский край</option>
+                  <option>Карачаево-Черкесская Республика</option>
+                  <option>Кемеровская область</option>
+                  <option>Кировская область</option>
+                  <option>Костромская область</option>
+                  <option>Краснодарский край</option>
+                  <option>Красноярский край</option>
+                  <option>Курганская область</option>
+                  <option>Курская область</option>
+                  <option>Ленинградская область</option>
+                  <option>Липецкая область</option>
+                  <option>Магаданская область</option>
+                  <option>Московская область</option>
+                  <option>Мурманская область</option>
+                  <option>Ненецкий автономный округ</option>
+                  <option>Нижегородская область</option>
+                  <option>Новгородская область</option>
+                  <option>Новосибирская область</option>
+                  <option>Омская область</option>
+                  <option>Оренбургская область</option>
+                  <option>Орловская область</option>
+                  <option>Пензенская область</option>
+                  <option>Пермский край</option>
+                  <option>Приморский край</option>
+                  <option>Псковская область</option>
+                  <option>Республика Адыгея</option>
+                  <option>Республика Алтай</option>
+                  <option>Республика Башкортостан</option>
+                  <option>Республика Бурятия</option>
+                  <option>Республика Дагестан</option>
+                  <option>Республика Ингушетия</option>
+                  <option>Республика Калмыкия</option>
+                  <option>Республика Карелия</option>
+                  <option>Республика Коми</option>
+                  <option>Республика Крым</option>
+                  <option>Республика Марий Эл</option>
+                  <option>Республика Мордовия</option>
+                  <option>Республика Саха (Якутия)</option>
+                  <option>Республика Северная Осетия - Алания</option>
+                  <option>Республика Татарстан</option>
+                  <option>Республика Тыва</option>
+                  <option>Республика Хакасия</option>
+                  <option>Ростовская область</option>
+                  <option>Рязанская область</option>
+                  <option>Самарская область</option>
+                  <option>Саратовская область</option>
+                  <option>Сахалинская область</option>
+                  <option>Свердловская область</option>
+                  <option>Смоленская область</option>
+                  <option>Ставропольский край</option>
+                  <option>Тамбовская область</option>
+                  <option>Тверская область</option>
+                  <option>Томская область</option>
+                  <option>Тульская область</option>
+                  <option>Тюменская область</option>
+                  <option>Удмуртская Республика</option>
+                  <option>Ульяновская область</option>
+                  <option>Хабаровский край</option>
+                  <option>Ханты-Мансийский автономный округ – Югра</option>
+                  <option>Челябинская область</option>
+                  <option>Чеченская Республика</option>
+                  <option>Чувашская Республика</option>
+                  <option>Чукотский автономный округ</option>
+                  <option>Ямало-Ненецкий автономный округ</option>
+                  <option>Ярославская область</option>
+                </datalist>
+        </div>
+        
+        <!-- №5 вопрос о регионе длительного проживания -->
+        <div class="form-group">
+            <label for="eventRegion_live">Укажите регион России, в котором вы прожили наиболее продолжительное время:</label>
+            <input type="text" name="eventRegion_live" class="form-control" placeholder="Регион" list="region" />
+        </div>
+
+        <!-- №6 вопрос 1 из основного теста -->
+        <div class="form-group left-align-options">
+          <input type="hidden" name="correct_answer_1" value="option3">
+          <label>1. Если в Пермском крае​ вас назвали <span  class="text-primary"> тыковкой</span>, на что вам намекают?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task1Option1" name="task_1" value="option1">
+              <label class="form-check-label" for="task1Option1">Что вы недалекий</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task1Option2" name="task_1" value="option2">
+              <label class="form-check-label" for="task1Option2">Что вы чудесный собеседник</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task1Option3" name="task_1" value="option3">
+              <label class="form-check-label" for="task1Option3">Что вы лезете не в свое дело</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task1Option4" name="task_1" value="option4">
+              <label class="form-check-label" for="task1Option4">Что вы слишком много времени проводите в огороде</label>
+          </div>
+        </div>
+
+        <!-- №7 вопрос 2 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_2" value="option2">
+          <label>2. Какие ассоциации у вас возникают со словом <span  class="text-primary">«сомжа»</span>?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task2Option1" name="task_2" value="option1">
+              <label class="form-check-label" for="task2Option1">Рыбалка и сом</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task2Option2" name="task_2" value="option2">
+              <label class="form-check-label" for="task2Option2">Сонливость и подушка</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task2Option3" name="task_2" value="option3">
+              <label class="form-check-label" for="task2Option3">Коса и сбор урожая</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task2Option4" name="task_2" value="option4">
+              <label class="form-check-label" for="task2Option4">Кулинария и пироги</label>
+          </div>
+        </div>
+
+        <!-- №8 вопрос 3 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_3" value="option4">
+          <label>3. Чем отличается <span  class="text-primary">«жуклистый»</span> человек?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task3Option1" name="task_3" value="option1">
+              <label class="form-check-label" for="task3Option1">Сообразительностью</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task3Option2" name="task_3" value="option2">
+              <label class="form-check-label" for="task3Option2">Богатством</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task3Option3" name="task_3" value="option3">
+              <label class="form-check-label" for="task3Option3">Громким голосом</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task3Option4" name="task_3" value="option4">
+              <label class="form-check-label" for="task3Option4">Бойкостью</label>
+          </div>
+        </div>
+
+        <!-- №9 вопрос 4 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_4" value="option3">
+          <label>4. Кто  <span  class="text-primary">«копызится»</span> в Смоленске?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task4Option1" name="task_4" value="option1">
+              <label class="form-check-label" for="task4Option1">Тот, кто ябедничает</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task4Option2" name="task_4" value="option2">
+              <label class="form-check-label" for="task4Option2">Тот, кто всегда опаздывает</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task4Option3" name="task_4" value="option3">
+              <label class="form-check-label" for="task4Option3">Тот, кто капризничает</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task4Option4" name="task_4" value="option4">
+              <label class="form-check-label" for="task4Option4">Тот, кто всюду торопится</label>
+          </div>
+        </div>
+
+        <!-- №10 вопрос 5 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_5" value="option1">
+          <label>5. Кто такой (или кто такая) <span  class="text-primary">алалочка</span>?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task5Option1" name="task_5" value="option1">
+              <label class="form-check-label" for="task5Option1">Человек, который говорит чепуху</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task5Option2" name="task_5" value="option2">
+              <label class="form-check-label" for="task5Option2">Девушка маленького роста</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task5Option3" name="task_5" value="option3">
+              <label class="form-check-label" for="task5Option3">Очень громкая собака</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task5Option4" name="task_5" value="option4">
+              <label class="form-check-label" for="task5Option4">Парень, который быстро бегает</label>
+          </div>
+        </div>
+
+        <!-- №11 вопрос 6 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_6" value="option4">
+          <label>6. Если человек <span  class="text-primary">«измётный»</span>, то он…</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task6Option1" name="task_6" value="option1">
+              <label class="form-check-label" for="task6Option1">Неопрятный</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task6Option2" name="task_6" value="option2">
+              <label class="form-check-label" for="task6Option2">Опытный</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task6Option3" name="task_6" value="option3">
+              <label class="form-check-label" for="task6Option3">Привлекательный</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task6Option4" name="task_6" value="option4">
+              <label class="form-check-label" for="task6Option4">Негодный</label>
+          </div>
+        </div>
+
+        <!-- №12 вопрос 7 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_7" value="option2">
+          <label>7. Чем занимается костромской <span  class="text-primary">«поигральщик»</span>?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task7Option1" name="task_7" value="option1">
+              <label class="form-check-label" for="task7Option1">Музыкой и пением</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task7Option2" name="task_7" value="option2">
+              <label class="form-check-label" for="task7Option2">Ухаживаниями за девушками</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task7Option3" name="task_7" value="option3">
+              <label class="form-check-label" for="task7Option3">Заключением пари</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task7Option4" name="task_7" value="option4">
+              <label class="form-check-label" for="task7Option4">Изготовлением деревянных кукол</label>
+          </div>
+        </div>
+
+        <!-- №13 вопрос 8 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_8" value="option4">
+          <label>8. Если к вам кто-то <span  class="text-primary">«лисавится»</span>, чего он хочет?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task8Option1" name="task_8" value="option1">
+              <label class="form-check-label" for="task8Option1">Соблазнить</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task8Option2" name="task_8" value="option2">
+              <label class="form-check-label" for="task8Option2">Обмануть</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task8Option3" name="task_8" value="option3">
+              <label class="form-check-label" for="task8Option3">Подразнить</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task8Option4" name="task_8" value="option4">
+              <label class="form-check-label" for="task8Option4">Приласкаться</label>
+          </div>
+        </div>
+
+        <!-- №14 вопрос 9 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_9" value="option3">
+          <label>9. Кто такая <span  class="text-primary">«нышпорка»</span>?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task9Option1" name="task_9" value="option1">
+              <label class="form-check-label" for="task9Option1">Назойливая мошка</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task9Option2" name="task_9" value="option2">
+              <label class="form-check-label" for="task9Option2">Домашняя мышь</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task9Option3" name="task_9" value="option3">
+              <label class="form-check-label" for="task9Option3">Пронырливая женщина</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task9Option4" name="task_9" value="option4">
+              <label class="form-check-label" for="task9Option4">Мелкая рыбка</label>
+          </div>
+        </div>
+
+        <!-- №15 вопрос 10 из основного теста -->
+        <div class="form-group">
+          <input type="hidden" name="correct_answer_10" value="option1">
+          <label>10. Если мы спросим, <span  class="text-primary">«упазились»</span> ли вы, проходя тест, что мы хотим узнать?</label>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task10Option1" name="task_10" value="option1">
+              <label class="form-check-label" for="task10Option1">Устали ли вы</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task10Option2" name="task_10" value="option2">
+              <label class="form-check-label" for="task10Option2">Узнали ли вы что-то новое</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task10Option3" name="task_10" value="option3">
+              <label class="form-check-label" for="task10Option3">Разозлились ли вы</label>
+          </div>
+      
+          <div class="form-check">
+              <input type="radio" class="form-check-input" id="task10Option4" name="task_10" value="option4">
+              <label class="form-check-label" for="task10Option4">Стало ли вам скучно</label>
+          </div>
+        </div>
+
+         <!-- №16 открытый вопрос -->
+         <div class="form-group">
+            <label for="eventOption">(*) Если вам известен какой-то диалектизм, характерный для вашего региона рождения или проживания, укажите его в поле ниже:</label>
+            <input type="text" name="eventOption" class="form-control" placeholder="Диалектизм">
+         </div>
+
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Записать</button>
+        </div>
+
+        <div style="height: 20px;"></div> 
+
+       </form>
+   </div>
+   
+{% endblock %}

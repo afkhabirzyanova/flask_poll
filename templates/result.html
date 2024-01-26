@@ -1,0 +1,16 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Result{% endblock %}
+{% block content %}
+    {{super()}}
+    <div class="container mt-3">
+        {% if latest_poll_result %}
+            <p class="text-body">Вы верно ответили на {{ latest_poll_result }} вопросов о диалектизмах из 10. </p>
+        {% else %}
+            <p class="text-body">Результат можно увидеть только сразу после прохождения теста.</p>
+        {% endif %}
+        <p class="text-body">Вы можете увидеть статистику по прохождению данной анкеты. Для этого перейдите на вкладку "Статистика" вверху страницы или нажмите на кнопку ниже.</p>
+        <div class="text-center">
+            <a href="{{ url_for('view_events') }}" class="btn btn-outline-primary">Статистика</a>
+        </div>
+      </div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}Events{% endblock %}
+{% block content %}
+   {{super()}}
+   
+   <div class="container mt-3">
+       <p class="text-body">Число участников опроса: <span  class="text-primary">{{ users_count }}</span></p>
+       <p class="text-body">Средний возраст участников опроса: <span  class="text-primary">{{ mean_age }}</span></p>
+       <p class="text-body">На диаграмме ниже представлено соотношение полов участников опроса:</p>
+
+       <img src="{{url_for('static', filename='pie_chart.png')}}" align="middle" class="center" style="max-height: 500px; max-width: 1000px;" />
+
+       <p class="text-body">Среднее значение правильных ответов на вопросы о диалектизмах (1-10 вопросы анкеты): <span  class="text-primary"> {{ mean_num_correct_answers }}/10</span></p>
+       <p class="text-body">На графике ниже представлено число верных ответов на каждый из 10 вопросов о диалектизмах:</p>
+
+       <img src="{{url_for('static', filename='plot.png')}}" align="middle" class="center" style="max-height: 500px; max-width: 1000px;" />
+
+{% endblock %}
